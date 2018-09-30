@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tie.mapper.LogMapper">
+    <select id="select" resultType="log">
+       SELECT * from log
+   </select>
+
+    <select id="selectByNo" resultType="log">
+        SELECT * from log
+        <where>
+            <if test="inNo!=null and inNo != ''">
+                AND acc_in_no=#{inNo}
+            </if>
+            <if test="outNo!=null and outNo != ''">
+                AND acc_out_no=#{outNo}
+            </if>
+        </where>
+    </select>
+</mapper>
